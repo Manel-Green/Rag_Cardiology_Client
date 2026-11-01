@@ -40,7 +40,7 @@ from generate_answer import (
 SOURCES_DELIMITER = "⁣⁣SOURCES⁣⁣"
 
 app = FastAPI(title="RAG Heart Studies API")
-
+db.init_db()
 # Allows the React frontend (running on localhost during dev) to call
 # this API - fine to leave open since this serves only public research
 # paper content, nothing sensitive.

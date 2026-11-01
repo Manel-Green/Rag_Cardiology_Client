@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 
-const BACKEND_BASE_URL = "http://localhost:8080";
+const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL || "http://localhost:8080";
 const SOURCES_DELIMITER = "SOURCES"; // must match src/app.py exactly
 
 function dedupeSources(sources) {

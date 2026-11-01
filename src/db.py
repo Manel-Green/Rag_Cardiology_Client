@@ -74,3 +74,25 @@ def get_conversation_messages(conversation_id):
         message["sources"] = json.loads(message["sources"]) if message["sources"] else None
         messages.append(message)
     return messages
+
+def init_db():
+    conn = get_connection()
+    conn.execute(
+        """CREATE TABLE IF NOT EXISTS conversations (
+            conversation_id TEXT PRIMARY KEY,
+            title TEXT,
+            created_at TEXT NOT NULL
+        )"""
+    )
+    conn.execute(
+        """CREATE TABLE IF NOT EXISTS messages (
+            message_id TEXT PRIMARY KEY,
+            conversation_id TEXT NOT NULL,
+            role TEXT NOT NULL,
+            text TEXT NOT NULL,
+            sources TEXT,
+            created_at TEXT NOT NULL
+        )"""
+    )
+    conn.commit()
+    conn.close()
