@@ -1,0 +1,9 @@
+google-cloud-documentai
+google-cloud-storage
+google-cloud-aiplatform
+numpy
+fastapi
+uvicorn[standard]
+requests
+google-genai
+python-dotenv
